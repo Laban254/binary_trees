@@ -17,19 +17,6 @@ int binary_tree_is_full(const binary_tree_t *tree)
 	return (binary_tree_is_full(tree->left) & binary_tree_is_full(tree->right));
 }
 
-/**
- * max - finds maximum height between two paths in a tree.
- * @left: length of left path
- * @right: length of right path
- *
- * Return: max between the two paths
- */
-size_t max(size_t left, size_t right)
-{
-	if (left < right)
-		return (right);
-	return (left);
-}
 
 /**
  * binary_tree_height - measures the height of a binary tree
@@ -39,16 +26,18 @@ size_t max(size_t left, size_t right)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	int left, right;
+	int left, right, max;
 
 	if (tree == NULL)
 		return (0);
 
 	left = binary_tree_height(tree->left);
 	right = binary_tree_height(tree->right);
-
-
-	return (max(left, right) + 1);
+	if (left < right)
+		max = right;
+	else
+		max = left;
+	return (max + 1);
 }
 /**
  * binary_tree_balance - Calculate the balance factor of a tree
@@ -74,4 +63,4 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (!binary_tree_balance(tree) && binary_tree_is_full(tree))
 		return (1)
 	return (0);
-} k
+}
