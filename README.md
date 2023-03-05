@@ -44,3 +44,7 @@ Write a function that measures the balance factor of a binary tree
 Write a function that checks if a binary tree is full
 #### TASK 16
 Write a function that checks if a binary tree is perfect
+#### TASK 17:
+Write a function that finds the sibling of a node
+#### TASK 18:
+Write a function that finds the uncle of a node
